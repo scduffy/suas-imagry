@@ -13,12 +13,12 @@ image = cv2.imread(args["image"])
 
 # define the list of boundaries
 boundaries = [
-#215, 24, 5    108, 10, 7
-	([7, 10, 108], [5, 24, 215]),
-	([0, 0, 0], [255, 0, 0]),
-	([25, 146, 190], [62, 174, 250]),
-	([103, 86, 65], [145, 133, 128])
+	([0, 0, 100], [102, 102, 255]),
+	([102, 26, 0], [255, 159, 128]),
+	([0, 128, 128], [153, 255, 255]),
+	([64, 64, 64], [217, 217, 217])
 ]
+
 # loop over the boundaries
 for (lower, upper) in boundaries:
 	# create NumPy arrays from the boundaries
