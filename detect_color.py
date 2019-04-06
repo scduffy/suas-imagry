@@ -13,12 +13,13 @@ image = cv2.imread(args["image"])
 
 # define the list of boundaries
 boundaries = [
-	([0, 0, 100], [102, 102, 255]),
-	([102, 26, 0], [255, 159, 128]),
-	([0, 128, 128], [153, 255, 255]),
-	([64, 64, 64], [217, 217, 217])
+	([0, 0, 128], [102, 102, 255]),   #red
+	([102, 26, 0], [255, 159, 128]),  #blue
+	([0, 128, 128], [153, 255, 255]), #yellow
+	([64, 64, 64], [217, 217, 217])   #gray
 ]
 
+i = 0
 # loop over the boundaries
 for (lower, upper) in boundaries:
 	# create NumPy arrays from the boundaries
@@ -32,4 +33,9 @@ for (lower, upper) in boundaries:
 
 	# show the images
 	cv2.imshow("images", np.hstack([image, output]))
+	#cv2.imshow("images", output)
+	name = "test_img_" + str(i) + ".png"
+
+	cv2.imwrite(name, output)
 	cv2.waitKey(0)
+	i = i + 1
