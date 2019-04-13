@@ -10,14 +10,7 @@ args = vars(ap.parse_args())
 
 img = cv2.imread(args["image"])
 
-kernel = np.ones((5,5),np.float32)/25
-dst = cv2.filter2D(img,-1,kernel)
+#blur = cv2.bilateralFilter(img,9,75,75)
+blur = cv2.medianBlur(img,5)
 
-plt.subplot(121),plt.imshow(img),plt.title('Original')
-plt.xticks([]), plt.yticks([])
-plt.subplot(122),plt.imshow(dst),plt.title('Averaging')
-
-
-cv2.imwrite("filtered.png", dst)
-plt.xticks([]), plt.yticks([])
-plt.show()
+cv2.imwrite("filtered.png", blur)
